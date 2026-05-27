@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import styles from "./why.module.css";
+import styles from "./whychooseus.module.css";
 
 const points = [
   "High Accuracy Results",

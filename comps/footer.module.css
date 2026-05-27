@@ -1,0 +1,166 @@
+.footerSection {
+  position: relative;
+  background: #f5f5f5;
+  padding: 80px 6%;
+  overflow: hidden;
+}
+
+.footerCard {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #e5e5e5;
+  border-radius: 34px;
+  padding: 60px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
+}
+
+.footerTop {
+  display: flex;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.brandColumn {
+  max-width: 420px;
+}
+
+.logoWrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.logoIcon {
+  width: 120px;
+  /* height: 120px; */
+  /* border-radius: 12px; */
+  /* background: #050505; */
+  /* color: #fff; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px; */
+}
+
+.logoIcon img {
+  width: 100%;
+}
+
+.logoText {
+  font-size: 20px;
+  font-weight: 700;
+  color: #050505;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 26px;
+}
+
+.socials {
+  display: flex;
+  gap: 16px;
+}
+
+.socials a {
+  color: #050505;
+  transition: 0.3s ease;
+}
+
+.socials a:hover {
+  transform: translateY(-3px);
+  opacity: 0.6;
+}
+
+.linksGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 70px;
+}
+
+.linksGrid h4 {
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: #050505;
+}
+
+.linksGrid a {
+  display: block;
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 14px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.linksGrid a:hover {
+  color: #050505;
+  transform: translateX(4px);
+}
+
+.divider {
+  height: 1px;
+  background: #e6e6e6;
+  margin: 46px 0 28px;
+}
+
+.footerBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  color: #666;
+  font-size: 13px;
+}
+
+.contactLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.contactLinks span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bgText {
+  position: absolute;
+  bottom: -65px;
+  left: 8%;
+  font-size: 220px;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.035);
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .footerCard {
+    padding: 38px;
+  }
+
+  .footerTop,
+  .footerBottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .linksGrid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .bgText {
+    font-size: 120px;
+  }
+}

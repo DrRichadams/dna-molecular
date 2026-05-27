@@ -4,7 +4,7 @@ import { useState } from "react";
 import styles from "./faq.module.css";
 
 export default function FAQ() {
-  const [open, setOpen] = (useState < number) | (null > null);
+  const [open, setOpen] = useState(null);
 
   const faqs = [
     "How accurate are the tests?",

@@ -1,59 +1,60 @@
-"use client";
-
-import { motion, useScroll, useTransform } from "framer-motion";
+import Link from "next/link";
+import { ShieldCheck, Microscope, Clock } from "lucide-react";
 import styles from "./banner.module.css";
 
 export default function Banner() {
-  const { scrollY } = useScroll();
-
-  const opacity = useTransform(scrollY, [0, 400], [1, 0]);
-  const scale = useTransform(scrollY, [0, 400], [1, 0.96]);
-
   return (
-    <motion.section
-      style={{ opacity, scale }}
-      className={styles.banner_container}
-    >
-      {/* 🎥 VIDEO BACKGROUND */}
+    <section className={styles.banner_container}>
       <video className={styles.video_bg} autoPlay muted loop playsInline>
         <source src="/images/banner/banner.mp4" type="video/mp4" />
       </video>
 
-      {/* 🧊 FULL GLASS OVERLAY */}
-      <div className={styles.glass_overlay}></div>
-
-      {/* 🌈 MOVING LIGHT SWEEP */}
+      <div className={styles.overlay}></div>
+      <div className={styles.dna_glow}></div>
       <div className={styles.light_sweep}></div>
 
-      {/* 🧬 CONTENT */}
       <div className={styles.banner_content}>
-        <motion.h1
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9 }}
-        >
-          Precision DNA Testing You Can Trust
-        </motion.h1>
+        <div className={styles.badge}>
+          <span></span>
+          Trusted DNA Diagnostics in Zimbabwe
+        </div>
 
-        <motion.p
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2, duration: 0.9 }}
-        >
-          Accurate, confidential, and scientifically advanced DNA diagnostics
-          for individuals, families, and institutions.
-        </motion.p>
+        <h1>Accurate DNA Testing for Life’s Most Important Answers</h1>
 
-        <motion.div
-          className={styles.cta_group}
-          initial={{ opacity: 0, y: 60 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4, duration: 0.9 }}
-        >
-          <button className={styles.primary_btn}>Book a Test</button>
-          <button className={styles.secondary_btn}>Learn More</button>
-        </motion.div>
+        <p>
+          Confidential, reliable, and scientifically backed DNA diagnostics for
+          individuals, families, legal matters, and institutions.
+        </p>
+
+        <div className={styles.cta_group}>
+          <Link href="#booking" className={styles.primary_btn}>
+            Book a Test
+          </Link>
+
+          <Link href="#services" className={styles.secondary_btn}>
+            View Services
+          </Link>
+        </div>
+
+        <div className={styles.trust_grid}>
+          <div className={styles.trust_card}>
+            <ShieldCheck size={20} />
+            <span>Confidential Results</span>
+          </div>
+
+          <div className={styles.trust_card}>
+            <Microscope size={20} />
+            <span>Advanced Testing</span>
+          </div>
+
+          <div className={styles.trust_card}>
+            <Clock size={20} />
+            <span>Fast Turnaround</span>
+          </div>
+        </div>
       </div>
-    </motion.section>
+
+      <div className={styles.bottom_fade}></div>
+    </section>
   );
 }

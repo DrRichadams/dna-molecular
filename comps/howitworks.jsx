@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import styles from "./how.module.css";
+import styles from "./howitworks.module.css";
 
 const steps = [
   "Book Your Test",

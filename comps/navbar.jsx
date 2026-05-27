@@ -1,71 +1,90 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { Menu, X } from "lucide-react";
 import styles from "./navbar.module.css";
 
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "About", href: "#about" },
+  { label: "Services", href: "#services" },
+  { label: "How It Works", href: "#how-it-works" },
+  { label: "Contact", href: "#contact" },
+];
+
 export default function Navbar() {
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
-    },
-  };
-
-  const slideIn = {
-    hidden: { opacity: 0, x: -40 },
-    show: {
-      opacity: 1,
-      x: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
-
-  const zoomIn = {
-    hidden: { opacity: 0, scale: 0.8 },
-    show: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
-  };
+  const [open, setOpen] = useState(false);
 
   return (
-    <nav className={styles.navbar}>
-      {/* 🧬 LOGO */}
-      <motion.div
-        variants={zoomIn}
-        initial="hidden"
-        animate="show"
-        className={styles.logo}
-      >
-        <img src="/images/molecular.png" alt="logo" className={styles.logo} />
-      </motion.div>
+    <header className={styles.header}>
+      <nav className={styles.navbar}>
+        <Link href="/" className={styles.brand}>
+          <div className={styles.logoBox}>
+            <Image
+              src="/images/molecular.png"
+              alt="DNA Molecular Diagnostics logo"
+              width={42}
+              height={42}
+              priority
+            />
+          </div>
 
-      {/* 🔗 LINKS */}
-      <motion.ul
-        variants={container}
-        initial="hidden"
-        animate="show"
-        className={styles.nav_links}
-      >
-        <motion.li variants={slideIn}>Home</motion.li>
-        <motion.li variants={slideIn}>About</motion.li>
-        <motion.li variants={slideIn}>Services</motion.li>
-        <motion.li variants={slideIn}>Contact</motion.li>
-      </motion.ul>
+          <div className={styles.brandText}>
+            <span>DNA Molecular</span>
+            <small>Diagnostics</small>
+          </div>
+        </Link>
 
-      {/* 🎯 CTA */}
-      <motion.button
-        variants={zoomIn}
-        initial="hidden"
-        animate="show"
-        className={styles.cta_btn}
+        <ul className={styles.navLinks}>
+          {navLinks.map((link, index) => (
+            <li key={link.label} style={{ "--delay": `${index * 0.08}s` }}>
+              <Link href={link.href}>{link.label}</Link>
+            </li>
+          ))}
+        </ul>
+
+        <div className={styles.actions}>
+          <Link href="#contact" className={styles.secondaryLink}>
+            Call Us
+          </Link>
+
+          <Link href="#booking" className={styles.ctaBtn}>
+            Book Test
+          </Link>
+        </div>
+
+        <button
+          className={styles.menuBtn}
+          onClick={() => setOpen(!open)}
+          aria-label="Toggle navigation menu"
+        >
+          {open ? <X size={22} /> : <Menu size={22} />}
+        </button>
+      </nav>
+
+      <div
+        className={`${styles.mobileMenu} ${open ? styles.mobileMenuOpen : ""}`}
       >
-        Book Test
-      </motion.button>
-    </nav>
+        {navLinks.map((link) => (
+          <Link
+            key={link.label}
+            href={link.href}
+            onClick={() => setOpen(false)}
+          >
+            {link.label}
+          </Link>
+        ))}
+
+        <Link
+          href="#booking"
+          className={styles.mobileCta}
+          onClick={() => setOpen(false)}
+        >
+          Book Test
+        </Link>
+      </div>
+    </header>
   );
 }
