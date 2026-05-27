@@ -3,6 +3,8 @@ import styles from "./page.module.css";
 import About from "@/comps/about";
 import Services from "@/comps/services";
 import Footer from "@/comps/footer";
+import FAQ from "@/comps/faq";
+import Contact from "@/comps/contacts";
 
 export default function Home() {
   return (
@@ -10,6 +12,8 @@ export default function Home() {
       <Banner />
       <About />
       <Services />
+      <FAQ />
+      <Contact />
       <Footer />
     </div>
   );
