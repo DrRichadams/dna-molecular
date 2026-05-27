@@ -50,9 +50,17 @@ export default function Navbar() {
             Call Us
           </Link>
 
-          <Link href="#booking" className={styles.ctaBtn}>
+          {/* <Link href="#booking" className={styles.ctaBtn}>
             Book Test
-          </Link>
+          </Link> */}
+          <a
+            href="https://wa.me/263787068015?text=Hello%20DNA%20Molecular%20Diagnostics,%20I%20would%20like%20to%20book%20a%20DNA%20test."
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.ctaBtn}
+          >
+            Book a Test
+          </a>
         </div>
 
         <button

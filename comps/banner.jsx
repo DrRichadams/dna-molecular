@@ -27,9 +27,14 @@ export default function Banner() {
         </p>
 
         <div className={styles.cta_group}>
-          <Link href="#booking" className={styles.primary_btn}>
+          <a
+            href="https://wa.me/263787068015?text=Hello%20DNA%20Molecular%20Diagnostics,%20I%20would%20like%20to%20book%20a%20DNA%20test."
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.primary_btn}
+          >
             Book a Test
-          </Link>
+          </a>
 
           <Link href="#services" className={styles.secondary_btn}>
             View Services
