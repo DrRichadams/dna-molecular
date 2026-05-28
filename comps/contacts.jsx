@@ -25,7 +25,7 @@ const contactItems = [
   {
     icon: MapPin,
     title: "Office Location",
-    detail: "57 Central Avenue, Harare, Zimbabwe",
+    detail: "129 Nelson Mandela Avenue Cnr 6th Street, Harare, Zimbabwe",
     description:
       "Visit our diagnostics office for appointments and consultations.",
   },
